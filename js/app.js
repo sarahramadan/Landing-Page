@@ -36,7 +36,6 @@ const sections=[
         paragraph2:'Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.',
     }
 ];
-let document = document;
 let isScrolling;
 /**
  * End Global Variables
@@ -45,7 +44,10 @@ let isScrolling;
 */
 let addAndRemoveActiveClass = (currentElement)=>{
     //remove all active class 
-    document.querySelector('section').classList.remove('your-active-class');
+    const activeSection= document.querySelector('.your-active-class');
+    if(activeSection){
+        activeSection.classList.remove('your-active-class');
+    }
     //add active class to current element in viewport
     currentElement.setAttribute("class", "your-active-class");
 }
@@ -112,7 +114,7 @@ let initSections =() => {
     mainElement.appendChild(fragment);
 }
 // build the nav li,a
-let initMenu = ()=>{
+let initMenu = ()=> {
     const navElement = document.querySelector('ul');
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < sections.length; i++) {
@@ -136,7 +138,7 @@ let initMenu = ()=>{
     navElement.appendChild(fragment);
 }
 // Add class 'active' to section when near top of viewport
- let sectionActiveFunction =()=>{
+ let sectionActiveFunction = ()=> {
     // display header while user scroll
     document.querySelector('.page__header').style.display='block';
     // check user stopped scroll
@@ -156,7 +158,7 @@ let initMenu = ()=>{
         }
     }
 }
-let initSectionActiveListenEvent = () =>{
+let initSectionActiveListenEvent = ()=> {
     // add event to listen for DOM scroll is changed
     document.addEventListener('scroll',sectionActiveFunction,false); 
 }
