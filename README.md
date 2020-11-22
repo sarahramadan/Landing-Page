@@ -1,7 +1,7 @@
 #Landing-Page Project Description:
-build landing view using html and add dynamic feature using javascript.
+- Build landing view using html and add dynamic feature using javascript.
 
-##roject Features
+##Project Features
 - Add dynamic sections and navigate items.
 - Click on navigate item that will scroll to related section.
 - Hide header if user stoped scroll
